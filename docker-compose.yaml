@@ -2,7 +2,9 @@ version: "3.8"
 services:
   app:
     container_name: app
-    build: ./containers/app
+    build:
+      context: .
+      dockerfile: ./containers/app/Dockerfile
     ports:
       - 8080:8080
     environment:
@@ -11,7 +13,7 @@ services:
     container_name: otel
     build:
       context: .
-      dockerfile: ./containers/otel/Dockerfile
+      dockerfile: ./containers/otel/Dockerfile.local
     ports:
       - 4317:4317
       - 8888:8888

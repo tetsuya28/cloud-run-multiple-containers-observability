@@ -8,7 +8,7 @@ package main
 
 #exporter: {
 	googlemanagedprometheus: {
-		project: "gcp-project-id"
+		project: "${PROJECT_ID}"
 	}
 	googlecloud: {
 		trace: {

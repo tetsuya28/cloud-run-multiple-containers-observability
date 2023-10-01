@@ -25,6 +25,7 @@ provider "google" {
 resource "google_project_service" "default" {
   for_each = toset([
     "artifactregistry.googleapis.com",
+		"run.googleapis.com",
   ])
   project = var.project_id
   service = each.value

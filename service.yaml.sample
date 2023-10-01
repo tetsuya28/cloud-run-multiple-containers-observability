@@ -1,16 +1,15 @@
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: tetsuya28
+  name: cloud-run-mco
   annotations:
     run.googleapis.com/launch-stage: BETA
     run.googleapis.com/ingress: all
-    run.googleapis.com/ingress-status: all
 spec:
   template:
     metadata:
       annotations:
-        autoscaling.knative.dev/maxScale: '100'
+        autoscaling.knative.dev/maxScale: '1'
     spec:
       containerConcurrency: 1
       timeoutSeconds: 300
@@ -33,6 +32,9 @@ spec:
             path: /
             port: 8080
       - image: ""
+        env:
+        - name: PROJECT_ID
+          value: ""
         resources:
           limits:
             cpu: 200m

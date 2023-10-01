@@ -6,11 +6,11 @@ ENV GOARCH=amd64
 
 WORKDIR /build
 
-COPY go.mod .
-COPY go.sum .
+COPY ./containers/app/go.mod .
+COPY ./containers/app/go.sum .
 RUN go mod download
 
-COPY . .
+COPY ./containers/app .
 
 RUN go build -o main main.go
 
