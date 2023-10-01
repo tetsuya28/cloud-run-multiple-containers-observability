@@ -12,7 +12,7 @@ package main
 	}
 	googlecloud: {
 		trace: {
-			endpoint: "https://cloudtrace.googleapis.com"
+			endpoint: "cloudtrace.googleapis.com:443"
 		}
 	}
 }
