@@ -31,7 +31,7 @@ exporters:
     project: ${PROJECT_ID}
   googlecloud:
     trace:
-      endpoint: cloudtrace.googleapis.com
+      endpoint: https://cloudtrace.googleapis.com
 service:
   telemetry:
     logs:
