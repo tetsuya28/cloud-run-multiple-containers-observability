@@ -23,7 +23,7 @@ receivers:
                 - localhost:8080
 exporters:
   googlemanagedprometheus:
-    project: gcp-project-id
+    project: ${PROJECT_ID}
   googlecloud:
     trace:
       endpoint: cloudtrace.googleapis.com

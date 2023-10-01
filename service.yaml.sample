@@ -17,6 +17,9 @@ spec:
       containers:
       - name: app
         image: ""
+        env:
+        - name: OTEL_COLLECTOR_ENDPOINT
+          value: localhost:4317
         ports:
         - name: http1
           containerPort: 8080
