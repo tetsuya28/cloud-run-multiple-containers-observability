@@ -29,5 +29,6 @@ terraform/apply:
 	cd terraform && terraform apply -var="project_id=$(GCP_PROJECT)"
 
 .PHONY: cloud-run/deploy
+cloud-run/deploy: docker/build-all
 cloud-run/deploy:
 	gcloud --project $(GCP_PROJECT) run services --region asia-northeast1 replace service.yaml

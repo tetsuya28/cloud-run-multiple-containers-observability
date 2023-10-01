@@ -21,6 +21,11 @@ receivers:
           static_configs:
             - targets:
                 - app:8080
+processors:
+  resourcedetection:
+    detectors:
+      - gcp
+    timeout: 10s
 exporters:
   prometheusremotewrite:
     endpoint: http://victoriametrics:8428/api/v1/write

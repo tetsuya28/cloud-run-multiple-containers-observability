@@ -21,6 +21,11 @@ receivers:
           static_configs:
             - targets:
                 - localhost:8080
+processors:
+  resourcedetection:
+    detectors:
+      - gcp
+    timeout: 10s
 exporters:
   googlemanagedprometheus:
     project: ${PROJECT_ID}

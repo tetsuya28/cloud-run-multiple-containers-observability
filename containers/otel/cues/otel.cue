@@ -41,6 +41,13 @@ receivers: {
 	}
 }
 
+processors: {
+	resourcedetection: {
+		detectors: ["gcp"],
+		timeout:   "10s",
+	}
+}
+
 exporters: #exporter
 
 service: {
