@@ -14,6 +14,9 @@ receivers: {
 				external_labels: {
 					service:     "${K_SERVICE}"
 					revision:    "${K_REVISION}"
+					cluster: "${K_SERVICE}"
+					location: "asia-northeast1"
+					namespace: "cloud-run"
 				}
 			}
 
