@@ -9,6 +9,9 @@ package main
 #exporter: {
 	googlemanagedprometheus: {
 		project: "${PROJECT_ID}"
+		retry_on_failure: {
+			enabled: true
+		}
 	}
 	googlecloud: {
 		trace: {
@@ -20,6 +23,7 @@ package main
 #pipelines: {
 	metrics: {
 		receivers: ["prometheus"]
+		processors: ["batch"]
 		exporters: ["googlemanagedprometheus"]
 	},
  	traces: {

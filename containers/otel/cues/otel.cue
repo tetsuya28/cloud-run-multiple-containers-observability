@@ -14,9 +14,6 @@ receivers: {
 				external_labels: {
 					service:     "${K_SERVICE}"
 					revision:    "${K_REVISION}"
-					cluster: "${K_SERVICE}"
-					location: "asia-northeast1"
-					namespace: "cloud-run"
 				}
 			}
 
@@ -45,9 +42,10 @@ receivers: {
 }
 
 processors: {
-	resourcedetection: {
-		detectors: ["gcp"],
-		timeout:   "10s",
+  batch: {
+    send_batch_max_size: 200
+    send_batch_size: 200
+    timeout: "5s"
 	}
 }
 
