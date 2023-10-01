@@ -1,0 +1,50 @@
+version: "3.8"
+services:
+  app:
+    container_name: app
+    build: ./containers/app
+    ports:
+      - 8080:8080
+    environment:
+      - OTEL_COLLECTOR_ENDPOINT=otel:4317
+  otel:
+    container_name: otel
+    build:
+      context: .
+      dockerfile: ./containers/otel/Dockerfile
+    ports:
+      - 4317:4317
+      - 8888:8888
+      - 13133:13133
+  tempo:
+    container_name: tempo
+    image: grafana/tempo:main-b07afb3
+    command: ["-config.file=/etc/tempo.yaml"]
+    ports:
+      - "14268:14268"  # jaeger ingest
+      - "3200:3200"   # tempo
+      - "9095:9095" # tempo grpc
+      - "9411:9411"   # zipkin
+    volumes:
+      - vmdata:/tmp/tempo
+      - ./provisioning/tempo/tempo.yaml:/etc/tempo.yaml
+  victoriametrics:
+    container_name: victoriametrics
+    image: victoriametrics/victoria-metrics:v1.93.3
+    ports:
+      - 8428:8428
+    volumes:
+      - vmdata:/storage
+    command:
+      - "--storageDataPath=/storage"
+      - "--httpListenAddr=:8428"
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:10.1.2
+    ports:
+      - 3000:3000
+    volumes:
+      - vmdata:/grafana
+      - ./provisioning/grafana/datasources:/etc/grafana/provisioning/datasources
+volumes:
+  vmdata: {}
