@@ -29,8 +29,6 @@ processors:
 exporters:
   googlemanagedprometheus:
     project: ${PROJECT_ID}
-    retry_on_failure:
-      enabled: "true"
   googlecloud:
     trace:
       endpoint: cloudtrace.googleapis.com:443

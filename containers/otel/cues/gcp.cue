@@ -9,9 +9,6 @@ package main
 #exporter: {
 	googlemanagedprometheus: {
 		project: "${PROJECT_ID}"
-		retry_on_failure: {
-			enabled: "true"
-		}
 	}
 	googlecloud: {
 		trace: {
