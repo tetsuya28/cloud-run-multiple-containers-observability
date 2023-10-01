@@ -10,7 +10,7 @@ package main
 	googlemanagedprometheus: {
 		project: "${PROJECT_ID}"
 		retry_on_failure: {
-			enabled: true
+			enabled: "true"
 		}
 	}
 	googlecloud: {
