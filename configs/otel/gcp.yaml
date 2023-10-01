@@ -28,7 +28,6 @@ processors:
     timeout: 5s
 exporters:
   googlemanagedprometheus:
-    project: ${PROJECT_ID}
   googlecloud:
     trace:
       endpoint: cloudtrace.googleapis.com:443
