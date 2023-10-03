@@ -26,6 +26,17 @@ processors:
     send_batch_max_size: 200
     send_batch_size: 200
     timeout: 5s
+  resource:
+    attributes:
+    - key: "cluster"
+      value: "my-on-prem-cluster"
+      action: upsert
+    - key: "namespace"
+      value: "my-app"
+      action: upsert
+    - key: "location"
+      value: "us-east-1"
+      action: upsert
 exporters:
   googlemanagedprometheus:
   googlecloud:
