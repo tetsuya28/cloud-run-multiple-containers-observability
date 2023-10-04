@@ -7,8 +7,8 @@ receivers:
     config:
       global:
         external_labels:
-          service: ${env:K_SERVICE}
-          revision: ${evn:K_REVISION}
+          service: ${K_SERVICE}
+          revision: ${K_REVISION}
       scrape_configs:
         - job_name: cloud-run-otel
           scrape_interval: 10s
@@ -23,7 +23,7 @@ receivers:
                 - localhost:8080
 exporters:
   googlemanagedprometheus:
-    project: ${env:PROJECT_ID}
+    project: ${PROJECT_ID}
   googlecloud:
     trace:
       endpoint: cloudtrace.googleapis.com:443
@@ -61,7 +61,7 @@ processors:
   resource:
     attributes:
       - key: service.name
-        value: ${env:K_SERVICE}
+        value: ${K_SERVICE}
         action: upsert
       - key: service.instance.id
         from_attribute: faas.id
