@@ -11,10 +11,7 @@ receivers: {
 	prometheus: {
 		config: {
 			global: {
-				external_labels: {
-					service:     "${K_SERVICE}"
-					revision:    "${K_REVISION}"
-				}
+				external_labels: #external_labels
 			}
 
 			scrape_configs: [

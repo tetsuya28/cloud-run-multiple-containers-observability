@@ -6,9 +6,14 @@ package main
 	"localhost:8080",
 ]
 
+#external_labels: {
+	service:     "${env:K_SERVICE}"
+	revision:    "${evn:K_REVISION}"
+}
+
 #exporter: {
 	googlemanagedprometheus: {
-		project: "${PROJECT_ID}"
+		project: "${env:PROJECT_ID}"
 	}
 	googlecloud: {
 		trace: {

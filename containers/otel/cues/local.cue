@@ -6,6 +6,8 @@ package main
 	"app:8080",
 ]
 
+#external_labels: {}
+
 #exporter: {
 	prometheusremotewrite: {
 		endpoint: "http://victoriametrics:8428/api/v1/write"
