@@ -40,6 +40,8 @@ service:
         - prometheus
       processors:
         - batch
+        - resourcedetection
+        - resource
       exporters:
         - googlemanagedprometheus
     traces:

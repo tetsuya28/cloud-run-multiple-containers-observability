@@ -20,7 +20,7 @@ package main
 #pipelines: {
 	metrics: {
 		receivers: ["prometheus"]
-		processors: ["batch"]
+		processors: ["batch", "resourcedetection", "resource"]
 		exporters: ["googlemanagedprometheus"]
 	}
  	traces: {
