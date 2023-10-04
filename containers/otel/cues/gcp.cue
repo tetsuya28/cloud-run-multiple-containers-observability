@@ -7,13 +7,13 @@ package main
 ]
 
 #external_labels: {
-	service:     "${env:K_SERVICE}"
-	revision:    "${evn:K_REVISION}"
+	service:     "${K_SERVICE}"
+	revision:    "${K_REVISION}"
 }
 
 #exporter: {
 	googlemanagedprometheus: {
-		project: "${env:PROJECT_ID}"
+		project: "${PROJECT_ID}"
 	}
 	googlecloud: {
 		trace: {
@@ -49,7 +49,7 @@ package main
 			attributes: [
 				{
 					key: "service.name"
-					value: "${env:K_SERVICE}"
+					value: "${K_SERVICE}"
 					action: "upsert"
 				},
 				{
