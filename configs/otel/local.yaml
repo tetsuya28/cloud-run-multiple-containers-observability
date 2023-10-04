@@ -21,11 +21,6 @@ receivers:
           static_configs:
             - targets:
                 - app:8080
-processors:
-  batch:
-    send_batch_max_size: 200
-    send_batch_size: 200
-    timeout: 5s
 exporters:
   prometheusremotewrite:
     endpoint: http://victoriametrics:8428/api/v1/write

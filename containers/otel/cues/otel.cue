@@ -41,13 +41,7 @@ receivers: {
 	}
 }
 
-processors: {
-  batch: {
-    send_batch_max_size: 200
-    send_batch_size: 200
-    timeout: "5s"
-	}
-}
+#processors
 
 exporters: #exporter
 
